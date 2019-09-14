@@ -16,6 +16,14 @@ class Model {
 
     this.todos.push(todo);
   }
+
+  editTodo(id, updatedText) {
+    this.todos = this.todos.map(todo =>
+      todo.id === id
+        ? { id: todo.id, text: updatedText, complete: todo.complete }
+        : todo
+    );
+  }
 }
 
 export { Model };
