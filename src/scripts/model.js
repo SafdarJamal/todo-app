@@ -24,6 +24,10 @@ class Model {
         : todo
     );
   }
+
+  deleteTodo(id) {
+    this.todos = this.todos.filter(todo => todo.id !== id);
+  }
 }
 
 export { Model };
