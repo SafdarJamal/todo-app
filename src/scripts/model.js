@@ -2,8 +2,8 @@ class Model {
   constructor() {
     // The state of the model, an array of todo objects, prepopulated with some data
     this.todos = [
-      { id: 1, text: 'Run a marathon', complete: false },
-      { id: 2, text: 'Plant a garden', complete: false }
+      { id: 1, text: 'Learn HTML', complete: false },
+      { id: 2, text: 'Learn CSS', complete: false }
     ];
   }
 
@@ -17,6 +17,7 @@ class Model {
     this.todos.push(todo);
   }
 
+  // Map through all todos, and replace the text of the todo with the specified id
   editTodo(id, updatedText) {
     this.todos = this.todos.map(todo =>
       todo.id === id
@@ -25,10 +26,12 @@ class Model {
     );
   }
 
+  // Filter a todo out of the array by id
   deleteTodo(id) {
     this.todos = this.todos.filter(todo => todo.id !== id);
   }
 
+  // Flip the complete boolean on the specified todo
   toggleTodo(id) {
     this.todos = this.todos.map(todo =>
       todo.id === id
