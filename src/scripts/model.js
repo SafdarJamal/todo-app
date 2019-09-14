@@ -28,6 +28,14 @@ class Model {
   deleteTodo(id) {
     this.todos = this.todos.filter(todo => todo.id !== id);
   }
+
+  toggleTodo(id) {
+    this.todos = this.todos.map(todo =>
+      todo.id === id
+        ? { id: todo.id, text: todo.text, complete: !todo.complete }
+        : todo
+    );
+  }
 }
 
 export { Model };
