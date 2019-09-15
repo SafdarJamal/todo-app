@@ -37,6 +37,8 @@ class Model {
         ? { id: todo.id, text: updatedText, complete: todo.complete }
         : todo
     );
+
+    this._commit(this.todos);
   }
 
   // Filter a todo out of the array by id
