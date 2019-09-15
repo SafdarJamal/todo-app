@@ -28,6 +28,14 @@ class View {
     this.app.append(this.title, this.form, this.todoList);
   }
 
+  get _todoText() {
+    return this.input.value;
+  }
+
+  _resetInput() {
+    this.input.value = '';
+  }
+
   // Create an element with an optional CSS class
   createElement(tag, className) {
     const element = document.createElement(tag);
