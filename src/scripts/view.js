@@ -16,6 +16,7 @@ class View {
     this.input.name = 'todo';
 
     this.submitButton = this.createElement('button');
+    this.submitButton.type = 'button';
     this.submitButton.textContent = 'Submit';
 
     // The visual representation of the todo list
@@ -112,9 +113,7 @@ class View {
   }
 
   bindAddTodo(handler) {
-    this.form.addEventListener('submit', event => {
-      event.preventDefault();
-
+    this.form.addEventListener('click', event => {
       if (this._todoText) {
         handler(this._todoText);
         this._resetInput();

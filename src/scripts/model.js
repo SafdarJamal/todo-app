@@ -1,11 +1,6 @@
 class Model {
   constructor() {
-    // The state of the model, an array of todo objects, prepopulated with some data
-    // this.todos = [
-    //   { id: 1, text: 'Learn HTML', complete: false },
-    //   { id: 2, text: 'Learn CSS', complete: false }
-    // ];
-
+    // The state of the model, an array of todo objects
     this.todos = JSON.parse(localStorage.getItem('todos')) || [];
   }
 
@@ -26,7 +21,6 @@ class Model {
     };
 
     this.todos.push(todo);
-    this.onTodoListChanged(this.todos);
     this._commit(this.todos);
   }
 
@@ -45,7 +39,6 @@ class Model {
   deleteTodo(id) {
     this.todos = this.todos.filter(todo => todo.id !== id);
 
-    this.onTodoListChanged(this.todos);
     this._commit(this.todos);
   }
 
@@ -57,7 +50,6 @@ class Model {
         : todo
     );
 
-    this.onTodoListChanged(this.todos);
     this._commit(this.todos);
   }
 }
