@@ -98,6 +98,37 @@ class View {
       });
     }
   }
+
+  bindAddTodo(handler) {
+    this.form.addEventListener('submit', event => {
+      event.preventDefault();
+
+      if (this._todoText) {
+        handler(this._todoText);
+        this._resetInput();
+      }
+    });
+  }
+
+  bindDeleteTodo(handler) {
+    this.todoList.addEventListener('click', event => {
+      if (event.target.className === 'delete') {
+        const id = parseInt(event.target.parentElement.id);
+
+        handler(id);
+      }
+    });
+  }
+
+  bindToggleTodo(handler) {
+    this.todoList.addEventListener('change', event => {
+      if (event.target.type === 'checkbox') {
+        const id = parseInt(event.target.parentElement.id);
+
+        handler(id);
+      }
+    });
+  }
 }
 
 export { View };
