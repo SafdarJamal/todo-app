@@ -7,6 +7,10 @@ class Model {
     ];
   }
 
+  bindTodoListChanged(callback) {
+    this.onTodoListChanged = callback;
+  }
+
   addTodo(todoText) {
     const todo = {
       id: this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 1,
@@ -15,6 +19,7 @@ class Model {
     };
 
     this.todos.push(todo);
+    this.onTodoListChanged(this.todos);
   }
 
   // Map through all todos, and replace the text of the todo with the specified id
@@ -29,6 +34,8 @@ class Model {
   // Filter a todo out of the array by id
   deleteTodo(id) {
     this.todos = this.todos.filter(todo => todo.id !== id);
+
+    this.onTodoListChanged(this.todos);
   }
 
   // Flip the complete boolean on the specified todo
@@ -38,6 +45,8 @@ class Model {
         ? { id: todo.id, text: todo.text, complete: !todo.complete }
         : todo
     );
+
+    this.onTodoListChanged(this.todos);
   }
 }
 

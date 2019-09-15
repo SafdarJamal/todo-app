@@ -5,6 +5,12 @@ class Controller {
 
     // Display initial todos
     this.onTodoListChanged(this.model.todos);
+
+    this.model.bindTodoListChanged(this.onTodoListChanged);
+    this.view.bindAddTodo(this.handleAddTodo);
+    this.view.bindDeleteTodo(this.handleDeleteTodo);
+    this.view.bindToggleTodo(this.handleToggleTodo);
+    // this.view.bindEditTodo(this.handleEditTodo) - We'll do this one last
   }
 
   onTodoListChanged = todos => {
