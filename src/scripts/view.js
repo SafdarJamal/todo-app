@@ -9,15 +9,15 @@ class View {
 
     // The form, with a [type="text"] input, and a submit button
     this.form = this.createElement('form');
+    this.form.setAttribute('autoComplete', 'off');
 
     this.input = this.createElement('input');
     this.input.type = 'text';
-    this.input.placeholder = 'Add todo';
+    this.input.placeholder = 'Add a task';
     this.input.name = 'todo';
 
     this.submitButton = this.createElement('button');
-    this.submitButton.type = 'button';
-    this.submitButton.textContent = 'Submit';
+    this.submitButton.textContent = 'Add';
 
     // The visual representation of the todo list
     this.todoList = this.createElement('ul', 'todo-list');
@@ -64,7 +64,7 @@ class View {
     // Show default message
     if (todos.length === 0) {
       const p = this.createElement('p');
-      p.textContent = 'Nothing to do! Add a task?';
+      p.textContent = 'Nothing to do.';
       this.todoList.append(p);
     } else {
       // Create todo item nodes for each todo in state
@@ -113,7 +113,9 @@ class View {
   }
 
   bindAddTodo(handler) {
-    this.form.addEventListener('click', event => {
+    this.form.addEventListener('submit', event => {
+      event.preventDefault();
+
       if (this._todoText) {
         handler(this._todoText);
         this._resetInput();
