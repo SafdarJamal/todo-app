@@ -11,6 +11,24 @@ git clone https://github.com/SafdarJamal/todo-app.git
 cd todo-app
 ```
 
+Finally, you need to start a local web server:
+
+[Download Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb)
+
+OR
+
+Install `http-server` globally:
+
+```
+npm install http-server -g
+```
+
+This will install `http-server` globally so that it may be run from the command line.
+
+```
+http-server
+```
+
 ## License
 
 This is an open source software [licensed as MIT](https://github.com/SafdarJamal/todo-app/blob/master/LICENSE).
