@@ -31,4 +31,4 @@ http-server
 
 ## License
 
-This is an open source software [licensed as MIT](https://github.com/SafdarJamal/todo-app/blob/master/LICENSE).
+This project is licensed under the terms of the [MIT license](https://github.com/SafdarJamal/todo-app/blob/master/LICENSE).
