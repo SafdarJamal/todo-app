@@ -29,6 +29,15 @@ This will install `http-server` globally so that it may be run from the command 
 http-server
 ```
 
+OR
+
+Use Python's `SimpleHTTPServer`:
+
+```
+cd src
+python -m SimpleHTTPServer
+```
+
 ## License
 
 This project is licensed under the terms of the [MIT license](https://github.com/SafdarJamal/todo-app/blob/master/LICENSE).
